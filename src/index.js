@@ -6,6 +6,7 @@ import "./styles/index.css";
 // ==========================
 // Components
 // ==========================
+//
 function Square() {
   return <button className="square">{/* TODO */}</button>;
 }
