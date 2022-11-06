@@ -36,12 +36,11 @@ function Board() {
 
     // <Square value="X" />
   };
-  const status = state.playerX ? "Next player: X" : "Next player: O";
+  // const status = state.playerX ? "Next player: X" : "Next player: O";
 
   return (
     <React.Fragment>
-      <div className="status h2 text-center">{status}</div>
-      <div className="">
+      <div className="d-flex justify-content-center">
         {renderSquare(0)}
         {/* {renderSquare(1)}
         {renderSquare(2)}
@@ -50,9 +49,9 @@ function Board() {
         {renderSquare(5)}
         {renderSquare(6)}
         {renderSquare(7)}
-        {renderSquare(8)} */}
+      {renderSquare(8)} */}
       </div>
-      <div>Start the Game</div>
+      <div className="status h2 text-center">{status}</div>
     </React.Fragment>
   );
 }
