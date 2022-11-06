@@ -8,25 +8,32 @@ function Game() {
 
   return (
     <div className="game">
-      <article className=" container ">
+      <article className=" container  ">
         <section className="row">
           <div className="col-sm-8 game-board">
+            <h2 className="text-center" style={{ fontSize: "2.5rem" }}>
+              Tic Tac Toe
+            </h2>
             <Board />
           </div>
           <div className="col-sm-4 game-info d-flex flex-column align-items-center  justify-content-center  ">
             <button
-              className="my-5"
+              className="my-5 btnStart "
               onClick={() => dispatch({ type: "start" })}
             >
               Start the Game
             </button>
-            {state.winner ? (
-              <p className="h2">Player {state.winner} won 🥳 </p>
+            {state.winner === "O" || state.winner === "X" ? (
+              <p className="h1" style={{ fontSize: "2.5rem" }}>
+                Player {state.winner} won 🥳{" "}
+              </p>
+            ) : state.winner && state.numberOfMoves === 9 ? (
+              <p className="h2">{state.winner}</p>
             ) : (
               <p className="h2">{status}</p>
             )}
             <button
-              className="my-5"
+              className="my-5 btnReset"
               onClick={() => dispatch({ type: "reset" })}
             >
               Reset

@@ -47,6 +47,10 @@ const ContextProvider = ({ children }) => {
           const player = state.playerX ? "X" : "O";
           boardSquares[action.squareNumber] = player;
           let winner = determineWinner(player, state.boardSquares);
+          const numberOfMoves = (state.numberOfMoves += 1);
+          if (state.numberOfMoves === 9 && winner === null) {
+            winner = "The Game is Draw";
+          }
           // console.log("Player Move", action.squareNumber);
           // console.log();
           return {
@@ -79,6 +83,7 @@ const ContextProvider = ({ children }) => {
           playerX: true,
           winner: null,
           start: false,
+          numberOfMoves: 0,
         };
       default:
         return state;
@@ -100,6 +105,7 @@ const ContextProvider = ({ children }) => {
     playerX: true,
     winner: null,
     start: false,
+    numberOfMoves: 0,
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);

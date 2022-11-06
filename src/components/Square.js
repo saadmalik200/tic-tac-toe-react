@@ -16,24 +16,8 @@ const Square = (props) => {
 
   return (
     <div className="">
-      {/* <div className="boardWrapper"> */}
-      {/* {Object.keys(state.boardSquares).map((key) => (
-        <div
-          className="square"
-          key={key}
-          onClick={() => {
-            if (state.boardSquares[key] === null) {
-              dispatch({ type: "PLAYER_MOVE", squareNumber: key });
-            }
-          }}
-        >
-          {state.boardSquares[key]}
-          {state.boardSquares[key] === null && (state.playerX ? "X" : "O")}
-        </div>
-      ))} */}
-      {/* </div> */}
       <div
-        className=" bg-primary border border-2 d-flex align-items-center justify-content-center"
+        className=" bg-success border border-2 d-flex align-items-center justify-content-center"
         style={{ width: "15rem", height: "15rem", fontSize: "5rem" }}
         onClick={() => {
           if (state.boardSquares[props.id] === null) {
@@ -41,9 +25,7 @@ const Square = (props) => {
           }
         }}
       >
-        {/* {props.value} */}
         {state.boardSquares[props.id]}
-        {/* {state.boardSquares[props.id] === null && (state.playerX ? "X" : "O")} */}
       </div>
     </div>
   );

@@ -18,39 +18,14 @@ function Board() {
           <div key={key}>
             <Square id={key} />
           </div>
-          // <div
-          //   className="square"
-          //   key={key}
-          //   onClick={() => {
-          //     if (state.boardSquares[key] === null) {
-          //       dispatch({ type: "PLAYER_MOVE", squareNumber: key });
-          //     }
-          //   }}
-          // >
-          //   {state.boardSquares[key]}
-          //   {state.boardSquares[key] === null && (state.playerX ? "X" : "O")}
-          // </div>
         ))}
       </div>
     );
-
-    // <Square value="X" />
   };
-  // const status = state.playerX ? "Next player: X" : "Next player: O";
 
   return (
     <React.Fragment>
-      <div className="d-flex justify-content-center">
-        {renderSquare(0)}
-        {/* {renderSquare(1)}
-        {renderSquare(2)}
-        {renderSquare(3)}
-        {renderSquare(4)}
-        {renderSquare(5)}
-        {renderSquare(6)}
-        {renderSquare(7)}
-      {renderSquare(8)} */}
-      </div>
+      <div className="d-flex justify-content-center">{renderSquare(0)}</div>
       <div className="status h2 text-center">{status}</div>
     </React.Fragment>
   );

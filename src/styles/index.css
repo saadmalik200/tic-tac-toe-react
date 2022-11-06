@@ -9527,4 +9527,26 @@ body {
   height: 100vh;
   display: flex;
   align-items: center;
+  background: rgb(23, 36, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(23, 36, 0, 1) 0%,
+    rgba(48, 50, 7, 1) 0%,
+    rgba(35, 133, 48, 1) 28%,
+    rgba(255, 154, 0, 1) 85%
+  );
+}
+
+.btnStart {
+  padding: 2rem;
+  width: 20rem;
+  font-size: 2rem;
+}
+
+.btnReset {
+  padding: 1.5rem;
+  width: 10rem;
+  font-size: 2rem;
+  background-color: #062c33;
+  color: white;
 }
