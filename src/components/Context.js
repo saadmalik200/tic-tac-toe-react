@@ -1,34 +1,65 @@
-// import { createContext, useReducer } from "react";
+import { createContext, useReducer } from "react";
 
-// export const Context = createContext();
+export const Context = createContext();
 
-// const ContextProvider = ({ children }) => {
-//   const reducer = (state, action) => {
-//     switch (action.type) {
-//       case "player1":
-//         console.log(action.payload.i);
-//         console.log(action.payload.id);
-//         return { ...state, status: state.status1 };
-//       default:
-//         return state;
-//     }
-//   };
+const ContextProvider = ({ children }) => {
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case "PLAYER_MOVE":
+        const boardSquares = state.boardSquares;
+        const player = state.playerX ? "X" : "O";
+        boardSquares[action.squareNumber] = player;
+        console.log("Player Move", action.squareNumber);
+        // console.log();
+        return {
+          ...state,
+          boardSquares,
+          playerX: !state.playerX,
+        };
 
-//   const initialState = {
-//     status: "",
-//     status1: "X",
-//     status2: "O",
-//     winner: "",
-//     squareArr: [],
-//     player1: true,
-//     player2: false,
-//   };
+      case "reset":
+        return {
+          ...state,
+          boardSquares: {
+            1: null,
+            2: null,
+            3: null,
+            4: null,
+            5: null,
+            6: null,
+            7: null,
+            8: null,
+            9: null,
+          },
+          playerX: true,
+          winner: null,
+        };
+      default:
+        return state;
+    }
+  };
 
-//   const [state, dispatch] = useReducer(reducer, initialState);
+  const initialState = {
+    boardSquares: {
+      1: null,
+      2: null,
+      3: null,
+      4: null,
+      5: null,
+      6: null,
+      7: null,
+      8: null,
+      9: null,
+    },
+    playerX: true,
+    winner: null,
+  };
 
-//   return (
-//     <Context.Provider value={{ state, dispatch }}>{children}</Context.Provider>
-//   );
-// };
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-// export default ContextProvider;
+  return (
+    <Context.Provider value={{ state, dispatch }}>{children}</Context.Provider>
+  );
+};
+
+export default ContextProvider;

@@ -1,31 +1,51 @@
 import React, { useContext, useId, useState } from "react";
 
+import { Context } from "./Context";
 const Square = (props) => {
-  const [x, setX] = useState("");
-  const [o, setO] = useState("");
-  const id = useId();
+  const { state, dispatch } = useContext(Context);
 
-  const handleClick = () => {
-    // props.player1 ? setX("X") : setO("O");
-    props.player1 && setX("X");
-    props.player2 && setO("O");
-    console.log(x);
+  // {Object.keys(state.boardSquares).map(key => (
+  //     <div
 
-    props.setPlayer1(!props.player1);
-    props.setPlayer2(!props.player2);
-  };
+  //       key={key}
+  //       onClick={() => {
+  //         if (state.boardSquares[key] === null) {
+  //           dispatch({ type: "playerMove", squareNumber: key });
+  //         }
+  //       }}
 
   return (
-    <button
-      // id={id}
-      onClick={handleClick}
-      className="square"
-    >
-      {/* {(props.player1 && x) || (props.player2 && o)} */}
-      {/* {props.player2 && o} */}
-      {props.player1 ? x : o}
-      {props.player2 ? x : o}
-    </button>
+    <div className="">
+      {/* <div className="boardWrapper"> */}
+      {/* {Object.keys(state.boardSquares).map((key) => (
+        <div
+          className="square"
+          key={key}
+          onClick={() => {
+            if (state.boardSquares[key] === null) {
+              dispatch({ type: "PLAYER_MOVE", squareNumber: key });
+            }
+          }}
+        >
+          {state.boardSquares[key]}
+          {state.boardSquares[key] === null && (state.playerX ? "X" : "O")}
+        </div>
+      ))} */}
+      {/* </div> */}
+      <div
+        className=" bg-primary border border-2 d-flex align-items-center justify-content-center"
+        style={{ width: "15rem", height: "15rem", fontSize: "5rem" }}
+        onClick={() => {
+          if (state.boardSquares[props.id] === null) {
+            dispatch({ type: "PLAYER_MOVE", squareNumber: props.id });
+          }
+        }}
+      >
+        {/* {props.value} */}
+        {state.boardSquares[props.id]}
+        {/* {state.boardSquares[props.id] === null && (state.playerX ? "X" : "O")} */}
+      </div>
+    </div>
   );
 };
 

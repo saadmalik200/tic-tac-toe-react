@@ -8,7 +8,7 @@ import ContextProvider from "./components/Context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  // <ContextProvider>
-  <Game />
-  // </ContextProvider
+  <ContextProvider>
+    <Game />
+  </ContextProvider>
 );

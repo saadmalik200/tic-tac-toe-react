@@ -16,19 +16,19 @@ body {
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
 }
 
-.square {
-  background: transparent;
-  color: #fff;
-  border: 1px solid #999;
-  font-size: 5vw;
-  font-weight: bold;
-  text-align: center;
-  border: 2px solid #2c3e50;
-  border-radius: 2px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+// .square {
+//   background: transparent;
+//   color: #fff;
+//   border: 1px solid #999;
+//   font-size: 5vw;
+//   font-weight: bold;
+//   text-align: center;
+//   border: 2px solid #2c3e50;
+//   border-radius: 2px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
 
 .square:focus {
   outline: none;
@@ -41,3 +41,39 @@ body {
 .square.winner {
   background-color: #df73ff;
 }
+
+.boardSquare {
+  // width: 100px;
+  // height: 100px;
+  // padding: 5rem;
+  // border: 1px solid black;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  font-size: 5rem;
+  cursor: pointer;
+  color: #242b31;
+}
+
+.boardWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: space-around;
+  width: 306px;
+  height: 306px;
+}
+
+// .boardSquare {
+//   width: 100px;
+//   height: 100px;
+//   border: 1px solid black;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   font-size: 2em;
+//   cursor: pointer;
+//   color: #4ba4eb;
+// }
