@@ -41,7 +41,7 @@ function Board() {
   return (
     <React.Fragment>
       <div className="status h2 text-center">{status}</div>
-      <div className="board">
+      <div className="">
         {renderSquare(0)}
         {/* {renderSquare(1)}
         {renderSquare(2)}
